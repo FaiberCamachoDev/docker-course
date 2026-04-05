@@ -1,0 +1,14 @@
+FROM node:19.2-alpine3.16
+# /app
+
+# cd /app
+WORKDIR /app
+
+#dest (destino) Dest /app y source (recursos que quiero copiar de mi app)
+COPY app.js package.json ./
+
+#instalar las dependencias (dependencies on package.json)
+RUN npm install
+
+#comando run de la imagen (comandos que se inician cuando la imagen se ejecuta)
+CMD [ "node", "app.js" ]
